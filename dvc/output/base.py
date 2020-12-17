@@ -1,7 +1,7 @@
 import logging
 import os
 from copy import copy
-from typing import Type
+from typing import Dict, Type
 from urllib.parse import urlparse
 
 from funcy import cached_property, project
@@ -587,7 +587,7 @@ class BaseOutput:
         )
 
     @cached_property
-    def environment(self):
+    def environment(self) -> Dict[str, str]:
         if self.dvclive:
             from dvc.schema import DVCLIVE_PROPS
 
